@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voting_app/onboarding.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,12 @@ class MyApp extends StatelessWidget {
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w600,
               fontSize: 28,
+              color: Colors.white),
+          // headline3: for texts inside GestureDetector
+          headline3: TextStyle(
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w500,
+              fontSize: 12,
               color: Colors.white),
           subtitle1: TextStyle(
               fontFamily: 'Poppins',
@@ -88,6 +95,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Onboarding();
   }
 }
