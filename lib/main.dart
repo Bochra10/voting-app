@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/onboarding.dart';
+import 'package:voting_app/success.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,10 +52,11 @@ class MyApp extends StatelessWidget {
               fontSize: 15,
               color: Colors.white),
         ),
-        backgroundColor: const Color(0x00181717),
-        scaffoldBackgroundColor: const Color(0x00181717),
+        backgroundColor: Color.fromARGB(255, 24, 23, 23),
+        scaffoldBackgroundColor: Color.fromARGB(255, 24, 23, 23),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
+            backgroundColor: Color.fromARGB(255, 35, 33, 33),
             alignment: AlignmentDirectional.center,
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(16))),
@@ -71,10 +73,10 @@ class MyApp extends StatelessWidget {
             borderSide: BorderSide(color: Color(0x00FFB61D)),
           ),
           hintStyle: TextStyle(
-            fontFamily: 'DM Sans',
-            fontWeight: FontWeight.w400,
-            fontSize: 14,
-          ),
+              fontFamily: 'DM Sans',
+              fontWeight: FontWeight.w400,
+              fontSize: 14,
+              color: Colors.white),
           contentPadding: EdgeInsets.only(top: 16, left: 20),
           filled: true,
           fillColor: Colors.white,
@@ -95,6 +97,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Onboarding();
+    return Success();
   }
 }
