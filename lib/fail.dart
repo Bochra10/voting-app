@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Success extends StatelessWidget {
-  const Success({Key? key}) : super(key: key);
+class Fail extends StatelessWidget {
+  const Fail({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,22 +22,25 @@ class Success extends StatelessWidget {
                 ),
               ),
             ),
-            Text(
-              "Successful!",
-              style: theme.textTheme.headline2,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: RichText(
+                text: TextSpan(
+                  text: '',
+                  style: theme.textTheme.headline2,
+                  children: const <TextSpan>[
+                    //TextSpan(text: user.name),
+                    TextSpan(text: 'Flen'),
+                    TextSpan(text: ', you have \nalready voted'),
+                  ],
+                ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 15, bottom: 50),
-              child: RichText(
-                text: TextSpan(
-                  text: 'Welcome ',
-                  style: theme.textTheme.bodyText1,
-                  children: const <TextSpan>[
-                    //TextSpan(text: user.name),
-                    TextSpan(text: 'flen'),
-                    TextSpan(text: '! \nYour vote has been registered'),
-                  ],
-                ),
+              child: Text(
+                "You can only vote once",
+                style: theme.textTheme.bodyText1,
               ),
             ),
             SizedBox(
