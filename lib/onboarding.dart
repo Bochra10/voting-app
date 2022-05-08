@@ -33,7 +33,7 @@ class Onboarding extends StatelessWidget {
                 Align(
                   alignment: AlignmentDirectional.centerEnd,
                   child: SizedBox(
-                    width: screensize.width / 2,
+                    width: screensize.width / 2 + 12,
                     child: Text(
                       "Vote from your comfort zone, fair and square with fingerprint recognition technology.",
                       style: theme.textTheme.bodyText2,
