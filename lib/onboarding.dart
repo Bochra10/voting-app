@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voting_app/home.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({Key? key}) : super(key: key);
@@ -48,7 +49,14 @@ class Onboarding extends StatelessWidget {
                   child: Align(
                     alignment: AlignmentDirectional.bottomEnd,
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute<void>(
+                            builder: (BuildContext context) => const Home(),
+                          ),
+                        );
+                      },
                       child: Container(
                         width: 150,
                         height: 50,
