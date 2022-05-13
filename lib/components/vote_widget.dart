@@ -30,7 +30,6 @@ class Vote extends StatelessWidget {
                               style: Theme.of(context).textTheme.subtitle2!.merge(TextStyle(
                                   color: Color.fromRGBO(255, 255, 255, 0.7))),
                               children: [
-                                TextSpan(text: "  Vote #"),
                                 TextSpan(text: vote.numVote.toString())
                               ]),
                         ),
