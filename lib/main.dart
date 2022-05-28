@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/fail.dart';
-import 'package:voting_app/home.dart';
-import 'package:voting_app/models/condidat.dart';
 import 'package:voting_app/onboarding.dart';
-import 'package:voting_app/profil.dart';
-import 'package:voting_app/success.dart';
 
 void main() {
   runApp(const MyApp());
@@ -102,5 +97,5 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Onboarding();
-    }
+  }
 }

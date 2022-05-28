@@ -15,7 +15,7 @@ class _HomeState extends State<Home> {
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+          automaticallyImplyLeading: false,
           toolbarHeight: 150,
           elevation: 0,
           backgroundColor: Colors.transparent,
@@ -29,7 +29,7 @@ class _HomeState extends State<Home> {
       body: ListView.builder(
         itemCount: 20,
         itemBuilder: (context, index) => Vote(
-          vote: VoteDetails(index+1, "15/05/2022"),
+          vote: VoteDetails(index + 1, "15/05/2022"),
         ),
       ),
     );

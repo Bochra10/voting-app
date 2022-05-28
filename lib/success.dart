@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voting_app/home.dart';
 
 class Success extends StatelessWidget {
   const Success({Key? key}) : super(key: key);
@@ -44,8 +45,15 @@ class Success extends StatelessWidget {
                 height: 60,
                 width: 220,
                 child: TextButton(
-                  onPressed: () {},
-                  child: Text("OK"),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) => const Home(),
+                      ),
+                    );
+                  },
+                  child: const Text("OK"),
                 ))
           ],
         ),

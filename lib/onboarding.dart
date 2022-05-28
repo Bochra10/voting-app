@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/home.dart';
+import 'package:voting_app/sign_up.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({Key? key}) : super(key: key);
@@ -53,7 +53,7 @@ class Onboarding extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute<void>(
-                            builder: (BuildContext context) => const Home(),
+                            builder: (BuildContext context) => const SignUp(),
                           ),
                         );
                       },
