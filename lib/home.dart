@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/components/vote_widget.dart';
 import 'package:voting_app/models/vote.dart';
+import 'package:voting_app/Singleton/SingletonDataAccessLayer.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:voting_app/Singleton/SingletonDataAccessLayer.dart';
+import 'package:firebase_database/firebase_database.dart';
+
+var dataAccessLayer = SingletonDataAccessLayer();
+var voteList = dataAccessLayer.getVoteList();
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -15,7 +22,7 @@ class _HomeState extends State<Home> {
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+          automaticallyImplyLeading: false,
           toolbarHeight: 150,
           elevation: 0,
           backgroundColor: Colors.transparent,
@@ -27,11 +34,29 @@ class _HomeState extends State<Home> {
             ),
           )),
       body: ListView.builder(
-        itemCount: 20,
+        itemCount: voteList.length,
         itemBuilder: (context, index) => Vote(
-          vote: VoteDetails(index+1, "15/05/2022"),
+          vote: VoteDetails(
+              voteList[index].name, "10/10/2022", voteList[index].voteId),
         ),
       ),
     );
+  }
+
+  void initState() {
+    super.initState();
+    _activateListeners();
+  }
+
+  void _activateListeners() {
+    FirebaseDatabase.instance.reference().onValue.listen((event) {
+      var data = event.snapshot.value;
+      var temporaryDataAccessLayer = SingletonDataAccessLayer();
+      temporaryDataAccessLayer.setData(data);
+      setState(() {
+        dataAccessLayer = temporaryDataAccessLayer;
+        voteList = dataAccessLayer.getVoteList();
+      });
+    });
   }
 }

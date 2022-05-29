@@ -14,9 +14,10 @@ class CondidatWidget extends StatelessWidget {
       child: Container(
           height: 75,
           decoration: BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.circular(16),),
-              //border: Border.all(color: Colors.white, width: 0.7)),
+            color: Colors.black,
+            borderRadius: BorderRadius.circular(16),
+          ),
+          //border: Border.all(color: Colors.white, width: 0.7)),
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Row(
@@ -24,37 +25,40 @@ class CondidatWidget extends StatelessWidget {
                 CircleAvatar(
                   backgroundColor: Colors.black,
                   radius: 25,
-                  backgroundImage: AssetImage('assets/condidat.jpg'),
+                  backgroundImage: NetworkImage(condidat.photoUrl == ""
+                      ? "https://img2.freepng.fr/20180624/yxv/kisspng-business-organization-computer-software-tom-clancy-unknown-person-5b2f72c6b16400.1895704715298362307266.jpg"
+                      : condidat.photoUrl),
                 ),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      RichText(
-                        text: TextSpan(
-                            style: theme.textTheme.subtitle2!.merge(TextStyle(
-                                color: Color.fromRGBO(255, 255, 255, 0.7))),
-                            children: [
-                              TextSpan(text: "Condidat #"),
-                              TextSpan(text: condidat.numCondidat.toString())
-                            ]),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                            style: Theme.of(context).textTheme.bodyText2!.merge(
-                                  TextStyle(
-                                      color: const Color(0xFFFFFF)
-                                          .withOpacity(0.4)),
-                                ),
-                            children: [
-                              TextSpan(text: condidat.name+"  :  "),
-                              TextSpan(text: condidat.state)
-                            ]),
-                      ),
-                    ],
-                  ),
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        RichText(
+                          text: TextSpan(
+                              style: theme.textTheme.subtitle2!.merge(TextStyle(
+                                  color: Color.fromRGBO(255, 255, 255, 0.7))),
+                              children: [
+                                TextSpan(text: "Candidat #"),
+                                TextSpan(text: condidat.numCondidat.toString())
+                              ]),
+                        ),
+                        RichText(
+                          text: TextSpan(
+                              style:
+                                  Theme.of(context).textTheme.bodyText2!.merge(
+                                        TextStyle(
+                                            color: const Color(0xFFFFFF)
+                                                .withOpacity(0.4)),
+                                      ),
+                              children: [
+                                TextSpan(text: condidat.name + "  :  "),
+                                TextSpan(text: condidat.description)
+                              ]),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 IconButton(
@@ -66,8 +70,14 @@ class CondidatWidget extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute<void>(
-                          builder: (BuildContext context) => Profil(condidat: CondidatDetails(0,0,"Amina Sirat","chairwoman",
-    "I believe in community and ensuring everyone is catered for, in justice, kindness and Humanitymost of all I believe in YOU. It takes YOU to change the narrative. Join me and we’d create an unstoppable Force driving positive change.")),
+                          builder: (BuildContext context) => Profil(
+                              condidat: CondidatDetails(
+                                  condidat.candidatId,
+                                  condidat.voteID,
+                                  condidat.numCondidat,
+                                  condidat.name,
+                                  condidat.description,
+                                  condidat.photoUrl)),
                         ),
                       );
                     })

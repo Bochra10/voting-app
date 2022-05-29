@@ -1,12 +1,12 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:voting_app/fail.dart';
-import 'package:voting_app/home.dart';
-import 'package:voting_app/models/condidat.dart';
 import 'package:voting_app/onboarding.dart';
-import 'package:voting_app/profil.dart';
-import 'package:voting_app/success.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:voting_app/Singleton/SingletonDataAccessLayer.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -99,6 +99,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  void initState() {
+    super.initState();
+    _activateListeners();
+  }
+
+  void _activateListeners() {
+    FirebaseDatabase.instance.reference().onValue.listen((event) {
+      var data = event.snapshot.value;
+      var dataAccessLayer = SingletonDataAccessLayer();
+      dataAccessLayer.setData(data);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Onboarding();

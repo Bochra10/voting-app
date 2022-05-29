@@ -28,7 +28,11 @@ class _ProfilState extends State<Profil> {
             SizedBox(
               height: size.height,
               width: size.width,
-              child: Image.asset("assets/condidat.jpg", fit: BoxFit.cover),
+              child: Image.network(
+                  widget.condidat.photoUrl == ""
+                      ? "https://img2.freepng.fr/20180624/yxv/kisspng-business-organization-computer-software-tom-clancy-unknown-person-5b2f72c6b16400.1895704715298362307266.jpg"
+                      : widget.condidat.photoUrl,
+                  fit: BoxFit.cover),
             ),
             Positioned(
                 top: 10,
@@ -80,7 +84,7 @@ class _ProfilState extends State<Profil> {
                                 horizontal: 25,
                               ),
                               child: Text(
-                                "State: " + widget.condidat.state,
+                                "Description: " + widget.condidat.description,
                                 style: theme.textTheme.bodyText1!.merge(
                                   TextStyle(
                                       color: const Color(0xFFFFFF)
@@ -118,7 +122,7 @@ class _ProfilState extends State<Profil> {
                             Expanded(
                               flex: 1,
                               child: Text(
-                                "State: " + widget.condidat.state,
+                                "Description: " + widget.condidat.description,
                                 style: theme.textTheme.bodyText1!.merge(
                                   TextStyle(
                                       color: const Color(0xFFFFFF)

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/condidats.dart';
 import '../models/vote.dart' as v;
+import 'package:voting_app/Singleton/SingletonDataAccessLayer.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:voting_app/Singleton/SingletonDataAccessLayer.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class Vote extends StatelessWidget {
   const Vote({Key? key, required this.vote}) : super(key: key);
@@ -27,11 +31,13 @@ class Vote extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
                         child: RichText(
                           text: TextSpan(
-                              style: Theme.of(context).textTheme.subtitle2!.merge(TextStyle(
-                                  color: Color.fromRGBO(255, 255, 255, 0.7))),
-                              children: [
-                                TextSpan(text: vote.numVote.toString())
-                              ]),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .subtitle2!
+                                  .merge(TextStyle(
+                                      color:
+                                          Color.fromRGBO(255, 255, 255, 0.7))),
+                              children: [TextSpan(text: vote.voteName)]),
                         ),
                       ),
                       RichText(
@@ -62,7 +68,8 @@ class Vote extends StatelessWidget {
                           context,
                           MaterialPageRoute<void>(
                             builder: (BuildContext context) => Condidats(
-                              vote_id: vote.numVote,
+                              vote_id: vote.voteId,
+                              vote_name: vote.voteName,
                             ),
                           ),
                         );

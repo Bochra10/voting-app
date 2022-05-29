@@ -1,8 +1,10 @@
 class CondidatDetails {
-  final int voteID;
+  final String candidatId;
+  final String voteID;
   final int numCondidat;
   final String name;
-  final String state;
   final String description;
-  CondidatDetails(this.voteID,this.numCondidat, this.name,this.state,this.description);
+  final String photoUrl;
+  CondidatDetails(this.candidatId, this.voteID, this.numCondidat, this.name,
+      this.description, this.photoUrl);
 }

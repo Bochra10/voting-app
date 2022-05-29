@@ -1,5 +1,6 @@
 class VoteDetails {
-  final int numVote;
+  final String voteName;
   final String deadline;
-  VoteDetails(this.numVote, this.deadline);
+  final String voteId;
+  VoteDetails(this.voteName, this.deadline, this.voteId);
 }
