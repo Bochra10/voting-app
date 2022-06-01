@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voting_app/home.dart';
 
 class Success extends StatelessWidget {
   const Success({Key? key}) : super(key: key);
@@ -30,12 +31,9 @@ class Success extends StatelessWidget {
               padding: const EdgeInsets.only(top: 15, bottom: 50),
               child: RichText(
                 text: TextSpan(
-                  text: 'Welcome ',
                   style: theme.textTheme.bodyText1,
                   children: const <TextSpan>[
-                    //TextSpan(text: user.name),
-                    TextSpan(text: 'flen'),
-                    TextSpan(text: '! \nYour vote has been registered'),
+                    TextSpan(text: '\nYour vote has been registered'),
                   ],
                 ),
               ),
@@ -44,7 +42,14 @@ class Success extends StatelessWidget {
                 height: 60,
                 width: 220,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) => const Home(),
+                      ),
+                    );
+                  },
                   child: Text("OK"),
                 ))
           ],

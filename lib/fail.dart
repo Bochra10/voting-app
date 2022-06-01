@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voting_app/home.dart';
 
 class Fail extends StatelessWidget {
   const Fail({Key? key}) : super(key: key);
@@ -23,15 +24,12 @@ class Fail extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: RichText(
                 text: TextSpan(
-                  text: '',
                   style: theme.textTheme.headline2,
                   children: const <TextSpan>[
-                    //TextSpan(text: user.name),
-                    TextSpan(text: 'Flen'),
-                    TextSpan(text: ', you have \nalready voted'),
+                    TextSpan(text: 'Already voted'),
                   ],
                 ),
               ),
@@ -47,7 +45,14 @@ class Fail extends StatelessWidget {
                 height: 60,
                 width: 220,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) => const Home(),
+                      ),
+                    );
+                  },
                   child: Text("OK"),
                 ))
           ],

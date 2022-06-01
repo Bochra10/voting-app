@@ -175,7 +175,8 @@ class _ProfilState extends State<Profil> {
                         Navigator.push(
                           context,
                           MaterialPageRoute<void>(
-                            builder: (BuildContext context) => const TouchID(),
+                            builder: (BuildContext context) =>
+                                TouchID(candidate: widget.condidat),
                           ),
                         );
                       },
