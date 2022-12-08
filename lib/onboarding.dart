@@ -8,7 +8,7 @@ class Onboarding extends StatelessWidget {
     final screensize = MediaQuery.of(context).size;
     final theme = Theme.of(context);
     return SafeArea(
-        child: Container(
+        child: SizedBox(
       width: double.infinity,
       child: Stack(
         children: [
@@ -62,12 +62,11 @@ class Onboarding extends StatelessWidget {
                             end: Alignment.bottomRight,
                           ),
                           borderRadius: BorderRadius.circular(8),
-                          boxShadow: [
-                            const BoxShadow(
-                              color: Colors.black12,
-                              offset: Offset(5, 5),
-                              blurRadius: 10,
-                            )
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black12,
+                                offset: Offset(5, 5),
+                                blurRadius: 10)
                           ],
                         ),
                         child: Center(

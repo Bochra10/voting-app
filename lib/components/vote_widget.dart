@@ -29,11 +29,11 @@ class Vote extends StatelessWidget {
                               style: Theme.of(context)
                                   .textTheme
                                   .subtitle2!
-                                  .merge(TextStyle(
+                                  .merge(const TextStyle(
                                       color:
                                           Color.fromRGBO(255, 255, 255, 0.7))),
                               children: [
-                                TextSpan(text: "  Vote #"),
+                                const TextSpan(text: "  Vote #"),
                                 TextSpan(text: vote.numVote.toString())
                               ]),
                         ),
@@ -42,11 +42,11 @@ class Vote extends StatelessWidget {
                         text: TextSpan(
                             style: Theme.of(context).textTheme.bodyText2!.merge(
                                   TextStyle(
-                                      color: const Color(0xFFFFFF)
+                                      color: const Color(0x00FFFFFF)
                                           .withOpacity(0.4)),
                                 ),
                             children: [
-                              TextSpan(text: "  Deadline : "),
+                              const TextSpan(text: "  Deadline : "),
                               TextSpan(text: vote.deadline)
                             ]),
                       ),

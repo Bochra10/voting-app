@@ -48,7 +48,7 @@ class Fail extends StatelessWidget {
                 width: 220,
                 child: TextButton(
                   onPressed: () {},
-                  child: Text("OK"),
+                  child: const Text("OK"),
                 ))
           ],
         ),
