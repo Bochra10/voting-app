@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/fail.dart';
 import 'package:voting_app/home.dart';
-import 'package:voting_app/models/condidat.dart';
-import 'package:voting_app/onboarding.dart';
-import 'package:voting_app/profil.dart';
-import 'package:voting_app/success.dart';
 
 void main() {
   runApp(const MyApp());
@@ -56,11 +51,11 @@ class MyApp extends StatelessWidget {
               fontSize: 15,
               color: Colors.white),
         ),
-        backgroundColor: Color.fromARGB(255, 24, 23, 23),
-        scaffoldBackgroundColor: Color.fromARGB(255, 24, 23, 23),
+        backgroundColor: const Color.fromARGB(255, 24, 23, 23),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 24, 23, 23),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
-            backgroundColor: Color.fromARGB(255, 35, 33, 33),
+            backgroundColor: const Color.fromARGB(255, 35, 33, 33),
             alignment: AlignmentDirectional.center,
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(16))),
