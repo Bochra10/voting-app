@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Success extends StatelessWidget {
-  const Success({Key? key}) : super(key: key);
+  final String userName;
+  const Success({Key? key, required this.userName}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +33,9 @@ class Success extends StatelessWidget {
                 text: TextSpan(
                   text: 'Welcome ',
                   style: theme.textTheme.bodyText1,
-                  children: const <TextSpan>[
-                    //TextSpan(text: user.name),
-                    TextSpan(text: 'flen'),
-                    TextSpan(text: '! \nYour vote has been registered'),
+                  children: <TextSpan>[
+                    TextSpan(text: userName),
+                    const TextSpan(text: '! \nYour vote has been registered'),
                   ],
                 ),
               ),

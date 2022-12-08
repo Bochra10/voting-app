@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/components/vote_widget.dart';
-import 'package:voting_app/models/vote.dart';
+import 'package:voting_app/data/dummy_votes.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -26,9 +26,9 @@ class _HomeState extends State<Home> {
             ),
           )),
       body: ListView.builder(
-        itemCount: 3,
+        itemCount: listOfVotes.length,
         itemBuilder: (context, index) => Vote(
-          vote: VoteDetails(3, "15/05/2022"),
+          vote: listOfVotes[index],
         ),
       ),
     );

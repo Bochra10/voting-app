@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Fail extends StatelessWidget {
-  const Fail({Key? key}) : super(key: key);
+  final String userName;
+  const Fail({Key? key, required this.userName}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +29,9 @@ class Fail extends StatelessWidget {
                 text: TextSpan(
                   text: '',
                   style: theme.textTheme.headline2,
-                  children: const <TextSpan>[
-                    //TextSpan(text: user.name),
-                    TextSpan(text: 'Flen'),
-                    TextSpan(text: ', you have \nalready voted'),
+                  children: <TextSpan>[
+                    TextSpan(text: userName),
+                    const TextSpan(text: ', you have \nalready voted'),
                   ],
                 ),
               ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/home.dart';
+import 'package:voting_app/success.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,43 +14,41 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
         textTheme: const TextTheme(
-          headline1: TextStyle(
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w600,
-              fontSize: 35,
-              color: Colors.white),
-          headline2: TextStyle(
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w600,
-              fontSize: 28,
-              color: Colors.white),
-          // headline3: for texts inside GestureDetector
-          headline3: TextStyle(
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w500,
-              fontSize: 12,
-              color: Colors.white),
-          subtitle1: TextStyle(
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w500,
-              fontSize: 25,
-              color: Colors.white),
-          subtitle2: TextStyle(
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w500,
-              fontSize: 20,
-              color: Colors.white),
-          bodyText1: TextStyle(
-              fontFamily: 'DM Sans',
-              fontWeight: FontWeight.w400,
-              fontSize: 17.5,
-              color: Colors.white),
-          bodyText2: TextStyle(
-              fontFamily: 'DM Sans',
-              fontWeight: FontWeight.w400,
-              fontSize: 15,
-              color: Colors.white),
-        ),
+            headline1: TextStyle(
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w600,
+                fontSize: 35,
+                color: Colors.white),
+            headline2: TextStyle(
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w600,
+                fontSize: 28,
+                color: Colors.white),
+            headline3: TextStyle(
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w500,
+                fontSize: 12,
+                color: Colors.white),
+            subtitle1: TextStyle(
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w500,
+                fontSize: 25,
+                color: Colors.white),
+            subtitle2: TextStyle(
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w500,
+                fontSize: 20,
+                color: Colors.white),
+            bodyText1: TextStyle(
+                fontFamily: 'DM Sans',
+                fontWeight: FontWeight.w400,
+                fontSize: 17.5,
+                color: Colors.white),
+            bodyText2: TextStyle(
+                fontFamily: 'DM Sans',
+                fontWeight: FontWeight.w400,
+                fontSize: 15,
+                color: Colors.white)),
         backgroundColor: const Color.fromARGB(255, 24, 23, 23),
         scaffoldBackgroundColor: const Color.fromARGB(255, 24, 23, 23),
         textButtonTheme: TextButtonThemeData(
@@ -96,6 +94,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Home();
+    return const Success(
+      userName: 'Tasnim',
+    );
   }
 }
