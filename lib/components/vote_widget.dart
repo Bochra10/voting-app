@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voting_app/condidats.dart';
 import '../models/vote.dart' as v;
 
 class Vote extends StatelessWidget {
@@ -61,7 +62,16 @@ class Vote extends StatelessWidget {
                         Icons.arrow_forward_ios,
                         color: Colors.white.withOpacity(0.7),
                       ),
-                      onPressed: () {}))
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute<void>(
+                            builder: (BuildContext context) => Condidats(
+                              vote_id: vote.numVote,
+                            ),
+                          ),
+                        );
+                      }))
             ],
           )),
     );
