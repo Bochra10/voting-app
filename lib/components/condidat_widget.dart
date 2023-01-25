@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/condidats.dart';
 import 'package:voting_app/models/condidat.dart';
 import 'package:voting_app/profil.dart';
 
@@ -37,10 +36,12 @@ class CondidatWidget extends StatelessWidget {
                       children: [
                         RichText(
                           text: TextSpan(
-                              style: theme.textTheme.subtitle2!.merge(TextStyle(
-                                  color: Color.fromRGBO(255, 255, 255, 0.7))),
+                              style: theme.textTheme.subtitle2!.merge(
+                                  const TextStyle(
+                                      color:
+                                          Color.fromRGBO(255, 255, 255, 0.7))),
                               children: [
-                                TextSpan(text: "Candidat #"),
+                                const TextSpan(text: "Candidat #"),
                                 TextSpan(text: condidat.numCondidat.toString())
                               ]),
                         ),
@@ -49,12 +50,11 @@ class CondidatWidget extends StatelessWidget {
                               style:
                                   Theme.of(context).textTheme.bodyText2!.merge(
                                         TextStyle(
-                                            color: const Color(0xFFFFFF)
+                                            color: const Color(0x00FFFFFF)
                                                 .withOpacity(0.4)),
                                       ),
                               children: [
-                                TextSpan(text: condidat.name + "  :  "),
-                                TextSpan(text: condidat.description)
+                                TextSpan(text: condidat.name),
                               ]),
                         ),
                       ],

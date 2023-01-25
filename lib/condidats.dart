@@ -1,18 +1,16 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/components/condidat_widget.dart';
 import 'package:voting_app/models/condidat.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:voting_app/Singleton/SingletonDataAccessLayer.dart';
+import 'package:voting_app/Singleton/singleton_data_access_layer.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 var dataAccessLayer = SingletonDataAccessLayer();
-var voteList;
+List<dynamic> voteList = [];
 
 class Condidats extends StatefulWidget {
-  final String vote_id;
-  final String vote_name;
-  const Condidats({Key? key, required this.vote_id, required this.vote_name})
+  final String voteId;
+  final String voteName;
+  const Condidats({Key? key, required this.voteId, required this.voteName})
       : super(key: key);
 
   @override
@@ -22,7 +20,7 @@ class Condidats extends StatefulWidget {
 class _CondidatsState extends State<Condidats> {
   @override
   Widget build(BuildContext context) {
-    voteList = dataAccessLayer.getCandidatelist(widget.vote_id);
+    voteList = dataAccessLayer.getCandidatelist(widget.voteId);
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
@@ -37,7 +35,7 @@ class _CondidatsState extends State<Condidats> {
             child: RichText(
               text: TextSpan(
                   style: theme.textTheme.headline1,
-                  children: [TextSpan(text: widget.vote_name)]),
+                  children: [TextSpan(text: widget.voteName)]),
             )),
         actions: [
           IconButton(
@@ -53,7 +51,7 @@ class _CondidatsState extends State<Condidats> {
         itemBuilder: (context, index) => CondidatWidget(
           condidat: CondidatDetails(
               voteList[index].candidateId,
-              widget.vote_id,
+              widget.voteId,
               index + 1,
               voteList[index].firstName,
               voteList[index].description,
@@ -63,6 +61,7 @@ class _CondidatsState extends State<Condidats> {
     );
   }
 
+  @override
   void initState() {
     super.initState();
     _activateListeners();
@@ -75,7 +74,7 @@ class _CondidatsState extends State<Condidats> {
       temporaryDataAccessLayer.setData(data);
       setState(() {
         dataAccessLayer = temporaryDataAccessLayer;
-        voteList = dataAccessLayer.getCandidatelist(widget.vote_id);
+        voteList = dataAccessLayer.getCandidatelist(widget.voteId);
       });
     });
   }

@@ -2,7 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/onboarding.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:voting_app/Singleton/SingletonDataAccessLayer.dart';
+import 'package:voting_app/Singleton/singleton_data_access_layer.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.grey,
         textTheme: const TextTheme(
@@ -56,11 +57,11 @@ class MyApp extends StatelessWidget {
               fontSize: 15,
               color: Colors.white),
         ),
-        backgroundColor: Color.fromARGB(255, 24, 23, 23),
-        scaffoldBackgroundColor: Color.fromARGB(255, 24, 23, 23),
+        backgroundColor: const Color.fromARGB(255, 24, 23, 23),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 24, 23, 23),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
-            backgroundColor: Color.fromARGB(255, 35, 33, 33),
+            backgroundColor: const Color.fromARGB(255, 35, 33, 33),
             alignment: AlignmentDirectional.center,
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(16))),
@@ -99,6 +100,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  @override
   void initState() {
     super.initState();
     _activateListeners();
@@ -114,6 +116,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Onboarding();
+    return const Onboarding();
   }
 }

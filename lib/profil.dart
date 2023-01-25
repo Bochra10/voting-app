@@ -1,8 +1,6 @@
-import 'dart:math';
-
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:voting_app/touchID.dart';
+import 'package:voting_app/touch_id.dart';
 import 'package:voting_app/models/condidat.dart';
 
 class Profil extends StatefulWidget {
@@ -87,7 +85,7 @@ class _ProfilState extends State<Profil> {
                                 "Description: " + widget.condidat.description,
                                 style: theme.textTheme.bodyText1!.merge(
                                   TextStyle(
-                                      color: const Color(0xFFFFFF)
+                                      color: const Color(0x00FFFFFF)
                                           .withOpacity(0.4)),
                                 ),
                               ),
@@ -125,7 +123,7 @@ class _ProfilState extends State<Profil> {
                                 "Description: " + widget.condidat.description,
                                 style: theme.textTheme.bodyText1!.merge(
                                   TextStyle(
-                                      color: const Color(0xFFFFFF)
+                                      color: const Color(0x00FFFFFF)
                                           .withOpacity(0.4)),
                                 ),
                               ),
@@ -136,7 +134,7 @@ class _ProfilState extends State<Profil> {
                                 widget.condidat.description,
                                 style: theme.textTheme.bodyText1!.merge(
                                   TextStyle(
-                                      color: const Color(0xFFFFFF)
+                                      color: const Color(0x00FFFFFF)
                                           .withOpacity(0.4)),
                                 ),
                               ),

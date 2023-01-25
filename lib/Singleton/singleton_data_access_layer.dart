@@ -1,13 +1,13 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
-import 'package:voting_app/models/CandidateInDb.dart';
-import 'package:voting_app/models/VoteInDb.dart';
-import 'package:voting_app/models/VotesPhoneIdInDb.dart';
+import 'package:voting_app/models/candidate_in_db.dart';
+import 'package:voting_app/models/vote_in_db.dart';
+import 'package:voting_app/models/votes_phone_id_in_db.dart';
 import 'package:voting_app/models/condidat.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 class SingletonDataAccessLayer {
-  Map<dynamic, dynamic>? data = null;
+  Map<dynamic, dynamic>? data;
 
   SingletonDataAccessLayer._privateConstructor();
 
@@ -23,19 +23,19 @@ class SingletonDataAccessLayer {
   }
 
   Map<dynamic, dynamic>? getRawData() {
-    return this.data;
+    return data;
   }
 
   Map<dynamic, dynamic>? getCandidatesMap() {
-    return this.data?["Candidates"];
+    return data?["Candidates"];
   }
 
   Map<dynamic, dynamic>? getVotesMap() {
-    return this.data?["Votes"];
+    return data?["Votes"];
   }
 
   Map<dynamic, dynamic>? getVotesPhoneIdMap() {
-    return this.data?["VotesPhoneId"];
+    return data?["VotesPhoneId"];
   }
 
   List getCandidatelist(String voteId) {

@@ -50,7 +50,7 @@ class Success extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text("OK"),
+                  child: const Text("OK"),
                 ))
           ],
         ),

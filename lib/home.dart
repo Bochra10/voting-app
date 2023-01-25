@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/components/vote_widget.dart';
 import 'package:voting_app/models/vote.dart';
-import 'package:voting_app/Singleton/SingletonDataAccessLayer.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:voting_app/Singleton/SingletonDataAccessLayer.dart';
+import 'package:voting_app/Singleton/singleton_data_access_layer.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 var dataAccessLayer = SingletonDataAccessLayer();
@@ -43,6 +41,7 @@ class _HomeState extends State<Home> {
     );
   }
 
+  @override
   void initState() {
     super.initState();
     _activateListeners();

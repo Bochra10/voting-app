@@ -53,7 +53,7 @@ class Fail extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text("OK"),
+                  child: const Text("OK"),
                 ))
           ],
         ),

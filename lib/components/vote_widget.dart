@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/condidats.dart';
 import '../models/vote.dart' as v;
-import 'package:voting_app/Singleton/SingletonDataAccessLayer.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:voting_app/Singleton/SingletonDataAccessLayer.dart';
-import 'package:firebase_database/firebase_database.dart';
 
 class Vote extends StatelessWidget {
   const Vote({Key? key, required this.vote}) : super(key: key);
@@ -34,7 +30,7 @@ class Vote extends StatelessWidget {
                               style: Theme.of(context)
                                   .textTheme
                                   .subtitle2!
-                                  .merge(TextStyle(
+                                  .merge(const TextStyle(
                                       color:
                                           Color.fromRGBO(255, 255, 255, 0.7))),
                               children: [TextSpan(text: vote.voteName)]),
@@ -44,12 +40,12 @@ class Vote extends StatelessWidget {
                         text: TextSpan(
                             style: Theme.of(context).textTheme.bodyText2!.merge(
                                   TextStyle(
-                                      color: const Color(0xFFFFFF)
+                                      color: const Color(0x00FFFFFF)
                                           .withOpacity(0.4)),
                                 ),
-                            children: [
+                            children: const [
                               TextSpan(text: "  Deadline : "),
-                              TextSpan(text: vote.deadline)
+                              TextSpan(text: '10/02/2023')
                             ]),
                       ),
                     ],
@@ -68,8 +64,8 @@ class Vote extends StatelessWidget {
                           context,
                           MaterialPageRoute<void>(
                             builder: (BuildContext context) => Condidats(
-                              vote_id: vote.voteId,
-                              vote_name: vote.voteName,
+                              voteId: vote.voteId,
+                              voteName: vote.voteName,
                             ),
                           ),
                         );
