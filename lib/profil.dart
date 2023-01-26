@@ -120,7 +120,7 @@ class _ProfilState extends State<Profil> {
                             Expanded(
                               flex: 1,
                               child: Text(
-                                "Description: " + widget.condidat.description,
+                                "Description: ",
                                 style: theme.textTheme.bodyText1!.merge(
                                   TextStyle(
                                       color: const Color(0x00FFFFFF)
